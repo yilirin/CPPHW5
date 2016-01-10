@@ -34,10 +34,12 @@ int main()
     // 随机生成元素，通过push_back追加到两个测试容器中
     for (int i = 0; i < 20; ++i)
     {
-        iv.push_back(rand());
+        iv.push_back(rand()%100);
         il.push_back(rand());
     }
-    
+//    for (auto it = iv.begin(); it != iv.end(); it++) {
+//        std::cout << *it << std::endl;
+//    }
     ////////////////////////////////////////////////////////////
     // 复制插入的数据，并通过STL自身的排序算法排序，排序后的容器将用于测试所实现的mysort函数
     iv_sorted = iv;
@@ -46,7 +48,11 @@ int main()
     sort(iv_sorted.begin(), iv_sorted.end());
     il_sorted.sort();
     
-    
+//    std::cout << "sorted iv:" << std::endl;
+//
+//    for (auto it = iv_sorted.begin(); it != iv_sorted.end(); it++) {
+//        std::cout << *it << std::endl;
+//    }
     ////////////////////////////////////////////////////////////
     // 通过实现的mysort函数对容器排序
     mysort(iv.begin(), iv.end());
@@ -59,8 +65,12 @@ int main()
     // 排序后结果应与STL排序后的结果相同
     assert(iv_sorted == iv); 
     assert(il_sorted == il); 
-    
-    system("pause"); 
+//    std::cout << "mysorted iv:" << std::endl;
+//    for (auto it = iv.begin(); it != iv.end(); it++) {
+//        std::cout << *it << std::endl;
+//    }
+
+    system("pause");
     
     return 0;
 }
